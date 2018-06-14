@@ -19,6 +19,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions 'main'
+    productFlavors {
+        free {
+            dimension 'main'
+            applicationId "io.viktorot.buildingitbigger.free"
+        }
+        paid {
+            dimension 'main'
+            applicationId "io.viktorot.buildingitbigger.paid"
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_7
         targetCompatibility = JavaVersion.VERSION_1_7
@@ -33,11 +44,10 @@ dependencies {
     api project(path: ':backend', configuration: 'android-endpoints')
     implementation project(':ui')
 
-    implementation ('com.google.android.gms:play-services-ads:11.8.0', {
+    freeImplementation ('com.google.android.gms:play-services-ads:11.8.0', {
         exclude group: 'com.android.support', module: 'support-media-compat'
         exclude group: 'com.android.support', module: 'support-v4'
     })
-    //implementation 'com.google.code.findbugs:jsr305:3.0.1'
 
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
