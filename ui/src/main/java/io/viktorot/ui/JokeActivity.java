@@ -1,5 +1,6 @@
 package io.viktorot.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,8 +16,8 @@ public class JokeActivity extends AppCompatActivity {
 
     private String joke;
 
-    public static Intent getStartIntent(@NonNull String joke) {
-        Intent intent = new Intent();
+    public static Intent getStartIntent(@NonNull Context context, @NonNull String joke) {
+        Intent intent = new Intent(context, JokeActivity.class);
         intent.putExtra(ARG_JOKE, joke);
         return intent;
     }

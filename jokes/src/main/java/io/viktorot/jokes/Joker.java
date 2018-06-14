@@ -10,7 +10,7 @@ public class Joker {
     private Joker() {
     }
 
-    private String getRandomJoke() {
+    public static String getRandomJoke() {
         int ind = (int) (Math.random() % JOKE_LIST.size());
         return JOKE_LIST.get(ind);
     }
