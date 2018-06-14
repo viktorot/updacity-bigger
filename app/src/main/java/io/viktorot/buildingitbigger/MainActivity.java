@@ -24,21 +24,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Button btn = findViewById(R.id.btn);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tellJoke();
-            }
-        });
     }
 
-    public void tellJoke() {
-//        new EndpointsAsyncTask().execute(this);
-        String data = "123123";
-        final Intent intent = JokeActivity.getStartIntent(this, data);
-        startActivity(intent);
+    public void tellJoke(View view) {
+        new EndpointsAsyncTask().execute(this);
     }
 }
 
